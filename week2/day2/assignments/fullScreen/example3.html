@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <button id="full" >Toggle full screen</button>
+    <script>
+        var elem = document.getElementById("full");
+elem.addEventListener('click', function(){
+  if(elem.requestFullscreen){
+  elem.requestFullscreen();
+  }
+})
+    </script>
+  </body>
+</html>

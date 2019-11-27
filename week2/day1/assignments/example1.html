@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <img src="" alt="1" id="image" />
+    <script>
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://dog.ceo/api/breeds/image/random");
+
+      // request state change event
+      xhr.onreadystatechange = function() {
+        // request completed?
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status === 200) {
+          // request successful - show response
+          console.log(JSON.parse(xhr.responseText).message);
+          let source = JSON.parse(xhr.responseText).message;
+          document.getElementById("image").src = source;
+        } else {
+          // request error
+          console.log("HTTP error", xhr.status, xhr.statusText);
+        }
+      };
+
+      // start request
+      xhr.send();
+    </script>
+  </body>
+</html>
