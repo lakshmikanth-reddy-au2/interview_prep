@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>repl.it</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	 crossorigin="anonymous">
+	</script>
+</head>
+
+<body>
+
+	<h1>Checked Checkboxes example</h1>
+	<form>
+		<input type="checkbox" name="branch" value="CS"> Iam a  Computer Science student<br>
+  <input type="checkbox" name="branch" value="ECE" > Iam a  Electronics and communication student<br>
+    <input type="checkbox" name="branch" value="EEE"> Iam a  Electrical student<br>
+  <input type="checkbox" name="branch" value="Civil"> Iam a  Civil student<br>
+  <input type="checkbox" name="branch" value="Mech"> Iam a  Mechanical student<br>
+<br><br>
+  <button>Click me</button>
+  <div id="result">
+    
+  </div>
+</form>
+     <script>
+      
+        $("button").click(function(){
+            var checkboxList = [];
+            $.each($("input[name='branch']:checked"), function(){
+                checkboxList.push($(this).val());
+            });
+            var d = '<h1>Students checked are '+checkboxList.join(", ")+' ';
+            $('#result').append(d);
+        });
+     </script>
+  </body>
+</html>
